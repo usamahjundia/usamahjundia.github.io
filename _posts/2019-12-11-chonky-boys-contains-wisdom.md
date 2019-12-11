@@ -3,6 +3,8 @@ published: false
 ---
 ## What is hidden inside the weights of a randomly initialized neural network?
 
+***If you want to dive headfirst to the code, you can directly go [here](https://github.com/usamahjundia/paper-implementation/tree/master/Whats%20in%20the%20weights%20of%20a%20randomly%20initialized%20nn)***
+
 Earlier this week, a researcher i followed on twitter retweeted [this thread](https://twitter.com/Mitchnw/status/1201575787100561408) written by another researcher.
 
 The paper mentioned can be accessed through [This link](https://arxiv.org/abs/1911.13299). After reading the abstract and eventually the whole paper, i found the idea to be pretty cool and i wanted to give it a go myself.
@@ -52,8 +54,16 @@ Now we have it. We know how to run the forward pass and backward pass, and we no
 - Wider, the better. This gives the model more parameters and possible subnetworks to choose from. **But it does not come from just having more parameters.** Observations made in the paper shows that even at the same parameter count (by adjusting the K), the performance is still great! Even closer to the performance of a model trained normally.
 - Weight initialization matters. The Kaiming Uniform and its scaled variant gives the best result as observed on the paper.
 
+### Ok, thanks. Very cool. Can i see the code now?
+I thought you'd never ask. (in reality you probably don't because im asking this question myself) For the implementation, i used numpy (and later, cupy to speed things up because i suck at optimizing) because in my framework of choice (TF2/Keras) I Couldnt figure out how to cleanly specify my own backward flow. And i am not in the mood to learn pytorch so there's that. 
 
+Code is long and IMO p self-documented. Do go straight to the [notebook](https://github.com/usamahjundia/paper-implementation/blob/master/Whats%20in%20the%20weights%20of%20a%20randomly%20initialized%20nn/Paper%20Implementation.ipynb)!
 
+On my experiment, i used the same number of hidden layers for both variants. The only different is the width. While the normal NN has sizes of **[784,100,100,10]**, for the Score NN i used **[784,250,250,10]** with K being 50%, **balanced as all things should be.** I also used the same loss function, the same initializer and the same optimizer for both variants. Even batch size and no. of epochs are also the same. Difference only in alpha (learning rate) because seems like the scores can be trained using higher learning rate (implications of faster convergence?).
 
+At the end of the experiment, **the normal NN achieves 97.5% on training data and 95.5% on test data**, while **the score NN achieves 93.3% accuracy ontraining data and 92.26% on test data**. ***(Maybe the lower disparity between the train and test scores of score_nn signifies something?)*** Which shows that it is possible to utilize the random weights of a NN by finding the right subnetwork utilizing them.
 
+Welp, that is all. Thank for coming to my TED (actually not) Talk (actually a monologue).
+
+Stay classy.
 
