@@ -2,14 +2,9 @@
 layout: page
 title: About
 permalink: /about/
+published: true
 ---
 
-Some information about you!
+Hello! I have no idea what to do in life so guess ill just try many different things at once, and in doing so document them through this blog!
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+Will be mostly tech, probably with some mix of other things im doing along the way.
