@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+nav a {
+  @apply text-[color:var(--black)] no-underline px-[0.5em] py-[1em] border-b-4 border-b-transparent border-solid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-[rgb(var(--black))] leading-[1.2] mt-0 mb-2 mx-0;
+}
+h1 {
+  @apply text-[1.526em];
+}
+h2 {
+  @apply text-[1.2205em];
+}
+h3 {
+  @apply text-[0.9765em];
+}
+h4 {
+  @apply text-[0.7815em];
+}
+h5 {
+  @apply text-[0.625em];
+}
+
+.prose > .title > h1 {
+  @apply text-[3.52em]
+}
+
+.prose > .title > h3 {
+  @apply text-[1.253em]
+}
+
+body {
+  @apply text-left bg-[100%_600px] bg-[#FFFFFF] dark:bg-[#333333] break-words text-[#333333] dark:text-[#FFFFFF] text-xl leading-[1.7] m-0 p-0;
+  font-family: "Atkinson", sans-serif;
+  word-wrap: break-word;
+}
+main {
+  @apply w-[720px] max-w-[calc(100%_-_2em)] mx-auto mt-[0px] mb-[16px] px-[1em] py-[3em] pt-[8px];
+}
